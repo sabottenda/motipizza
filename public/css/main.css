@@ -1,0 +1,116 @@
+body{
+    background: #fffbf0;
+    font-family: Georgia,Meiryo,Hiragino Kaku Gothic Pro,VL Gothic,sans-serif;
+}
+
+p{
+    font-size: 16px;
+}
+
+#contents{
+    padding: 40px;
+}
+
+#display{
+    background: #ffffff;
+    border: 1px solid #ccc;
+    padding: 20px 20px 10px 20px;
+    border-radius: 10px 10px 10px 10px;
+}
+
+#display h3{
+    margin-bottom: 0px;
+}
+
+#display .display-thumb img{
+    display: block;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#display-main img{
+    width: 720px;
+}
+
+
+#update{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 6px 6px 6px 6px;
+}
+
+#update *{
+    margin: 0;
+}
+
+#update h2 {
+    background: none repeat scroll 0 0 #0089C0;
+    border-radius: 6px 6px 0 0;
+    color: white;
+    font-size: 14px;
+    height: 24px;
+    padding-left: 20px;
+    padding-top: 4px;
+    line-height: 20px;
+}
+
+#social-buttons{
+    list-style: none;
+    padding: 10px 0 0 0;
+    margin-left: 0;
+    margin-right: -20px;
+}
+#social-buttons li{
+    float: left;
+    margin: 0;
+    margin-right: -30px;
+    padding: 0;
+}
+
+#update ul{
+    list-style: none;
+    margin-left: 0;
+}
+
+#update ul li{
+    padding: 3px 3px 3px 3px;
+    border-top: 1px dotted #BBBBBB;
+}
+
+#activity img{
+    padding-left: 30px;
+}
+
+#catalog-list img{
+    height: 340px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+}
+
+#catalog-list{
+    height:100%;
+    padding-top: 20px;
+}
+
+#catalog-list h4{
+    text-align: center;
+}
+
+#catalog-list p{
+    text-align: center;
+}
+
+#catalog #social-buttons {
+    margin-top:10px;
+    margin-left:20px;
+    float: left;
+}
+
+#member h4{
+    margin-top: 0;
+}
+

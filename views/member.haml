@@ -1,0 +1,46 @@
+-# coding: UTF-8
+
+%div.container#member
+  %h2
+    MotiPizzaのめんばー
+  %div.container
+    - $members.keys.each do |member|
+      %div.row{:style => 'padding: 10px 10px 10px 10px'}
+        %div.span2.offset1<
+          %img{:src=>"#{$members[member]['twitter_icon']}", :width=>'120px', :height=>'120px'}
+        %div.span8<
+          %div.row
+            %h4.pull-left<= $members[member]['name']
+          %div.row
+            %p<= $members[member]['introduction']
+            %ul
+              %li< 
+                %a{:href=>"#{$members[member]['twitter']}"}< @#{member}
+              - $members[member]['links'].each_pair do |key, link|
+                %li<
+                  %a{:href=>"#{link}"}<= key
+
+  %div.container
+    %div.row{:style => 'padding: 10px 10px 10px 10px'}
+      %div.span2.offset1<
+        %img{:src=>"/img/yui.jpg", :width=>'120px', :height=>'120px'}
+      %div.span8<
+        %div.row
+          %h4.pull-left< ユイ
+        %div.row
+          %p< LLVMのフロントエンドちゃん
+          %ul
+            %li< 誕生日 12月17日
+            %li< 天然
+
+    %div.row{:style => 'padding: 10px 10px 10px 10px'}
+      %div.span2.offset1<
+        %img{:src=>"/img/ruri.jpg", :width=>'120px', :height=>'120px'}
+      %div.span8<
+        %div.row
+          %h4.pull-left< ルリ
+        %div.row
+          %p< LLVMのバックエンドちゃん
+          %ul
+            %li< 誕生日 2月4日
+            %li< ツンデレ

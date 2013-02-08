@@ -1,0 +1,14 @@
+-# coding: UTF-8
+
+%div.container#catalog-list
+  %h2
+    カタログ
+  %div.row
+    %ul.thumbnails
+      -$catalogs.values.each do |catalog|
+        %li.span4
+          %div.thumbnail
+            %a{:href=>"#{catalog['url']}"}<
+              %img{:src=>"#{catalog['img']}"}
+              %h4< #{catalog['title']}
+            %p< @#{catalog['location']} on #{catalog['date']}

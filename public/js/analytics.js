@@ -1,0 +1,42 @@
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-38352114-1']);
+_gaq.push(['_addOrganic', 'images.google','q']);
+_gaq.push(['_addOrganic', 'azby.search.nifty','q',true]);
+_gaq.push(['_addOrganic', 'nifty','q',true]);
+_gaq.push(['_addOrganic', 'nifty','Text',true]);
+_gaq.push(['_addOrganic', 'livedoor-search','q',true]);
+_gaq.push(['_addOrganic', 'naver.jp','q',true]);
+_gaq.push(['_addOrganic', 'so-net','query']);
+_gaq.push(['_addOrganic', 'fresheye','kw']);
+_gaq.push(['_addOrganic', 'auone','q',true]);
+_gaq.push(['_addOrganic', 'hi-ho', 'search']);
+_gaq.push(['_addOrganic', 'odn','search']);
+_gaq.push(['_addOrganic', 'eonet','search']);
+_gaq.push(['_addOrganic', 'toppa','search']);
+_gaq.push(['_addOrganic', 'search.smt.docomo', 'MT',true]);
+_gaq.push(['_addOrganic', 'excite','q']);
+_gaq.push(['_addOrganic', 'asahi','Keywords']);
+_gaq.push(['_addOrganic', 'fenrir-inc', 'q',true]);
+_gaq.push(['_addOrganic', 's.luna.tv', 'q']);
+_gaq.push(['_addOrganic', 'lunascape', 'p']);
+_gaq.push(['_addOrganic', 'hatena', 'word']);
+_gaq.push(['_addOrganic', 'ecnavi', 'Keywords']);
+_gaq.push(['_addOrganic', 'cybozu', 'Keywords']);
+_gaq.push(['_addOrganic', 'cocacola', 'Keywords']);
+_gaq.push(['_addOrganic', 'picmy.jp', 'Keywords']);
+_gaq.push(['_addOrganic', 'adingo.jp', 'Keywords']);
+_gaq.push(['_addOrganic', 'adingosearch', 'Keywords']);
+_gaq.push(['_addOrganic', 'pex.jp', 'Keywords']);
+_gaq.push(['_addOrganic', 'went.jp', 'Keywords']);
+_gaq.push(['_addOrganic', 'unisearch.jp', 'keyword']);
+_gaq.push(['_addOrganic', 'tnc.jword.jp', 'q']);
+_gaq.push(['_addOrganic', 't-com.jword.jp', 'q']);
+_gaq.push(['_addOrganic', 'search.jword.jp', 'name']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+
