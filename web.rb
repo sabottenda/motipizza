@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 require 'sinatra'
+require './lib/googleapi.rb'
 
 $site_title = 'MotiPizza'
 
@@ -111,6 +112,22 @@ get '/catalog/eb-kitsune' do
   @catalog=$catalogs['eb-kitsune']
   @page_title=@catalog['title']
   haml :'eb-kitsune'
+end
+
+get '/catalog/eb-kitsune/eratta' do
+  @catalog=$catalogs['eb-kitsune']
+  @page_title=@catalog['title'] + "の訂正一覧"
+  key = '0AvA30B4fFQDTdGNJSjdnQzFfSGNHRDlSazlCRGxFVmc'
+  client = get_google_api_client
+  csv = get_spreadsheet(client, key)
+  @eratta = CSV.parse(csv)
+  @eratta.map! do |csv|
+    csv.map!{|x| x.force_encoding("UTF-8") unless x.nil?}
+  end
+  @table_header = @eratta.shift
+  @eratta.select!{|x| x[6] == 'v'}
+  @eratta.sort!{|a,b| a[1].to_i <=> b[1].to_i}
+  haml :'eb-kitsune-eratta'
 end
 
 get '/catalog/c83' do

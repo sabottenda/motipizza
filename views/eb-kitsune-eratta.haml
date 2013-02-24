@@ -1,0 +1,33 @@
+-# coding: UTF-8
+
+%div.container
+  %h2< #{@catalog['title']}の訂正一覧
+  %p
+    一覧に無い部分でおかしいと感じたりよくわからないところがありましたら
+    %a{:href => 'https://docs.google.com/forms/d/1be7ViUIsdW2COMcRTTH93EDaXCWSXc8e9e-bTtBiRUI/viewform'}<> 報告用フォーム
+    (注:Google Docs)からご連絡頂けると幸いです。
+    %a
+  %table.table.table-hover
+    %thead
+      %tr
+        %th{:style => 'width:50px'}<= @table_header[1]
+        %th<= @table_header[2]
+        %th<= @table_header[3]
+        %th{:style => 'width:70px'}<
+          報告
+          %br<>
+          バージョン
+        %th{:style => 'width:70px'}<
+          修正
+          %br<>
+          バージョン
+        %th<= @table_header[0]
+    %tbody
+      - @eratta.each do |x|
+        %tr
+          %td<= x[1]
+          %td<= x[2]
+          %td<= x[3]
+          %td<= x[4]
+          %td<= x[5]
+          %td<= x[0]
