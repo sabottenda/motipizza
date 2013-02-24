@@ -7,16 +7,16 @@
     - $members.keys.each do |member|
       %div.row{:style => 'padding: 10px 10px 10px 10px'}
         %div.span2.offset1<
-          %img{:src=>"#{$members[member]['twitter_icon']}", :width=>'120px', :height=>'120px'}
+          %img{:src=>"#{$members[member][:twitter_icon]}", :width=>'120px', :height=>'120px'}
         %div.span8<
           %div.row
-            %h4.pull-left<= $members[member]['name']
+            %h4.pull-left<= $members[member][:name]
           %div.row
-            %p<= $members[member]['introduction']
+            %p<= $members[member][:introduction]
             %ul
               %li< 
-                %a{:href=>"#{$members[member]['twitter']}"}< @#{member}
-              - $members[member]['links'].each_pair do |key, link|
+                %a{:href=>"#{$members[member][:twitter]}"}< @#{member}
+              - $members[member][:links].each_pair do |key, link|
                 %li<
                   %a{:href=>"#{link}"}<= key
 

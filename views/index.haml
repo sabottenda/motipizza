@@ -6,13 +6,13 @@
       %ul.nav.nav-list.bs-docs-sidenav
         - @list.each do |catalog|
           %li.display-thumb<
-            %a{:href=>"#{catalog['url']}"}<
-              %img.img-polaroid{"src" => "#{catalog['clip']}", "alt" => "#{catalog['title']}"}
+            %a{:href=>"#{catalog[:url]}"}<
+              %img.img-polaroid{:src => "#{catalog[:clip]}", :alt => "#{catalog[:title]}"}
 
     %div.span9#display-main
-      %a{:href => "#{@list[0]['url']}"}<
-        %img.img-polaroid{:src => "#{@list[0]['clip']}", "alt" => "#{@list[0]['title']}"}
-        %h3.pull-right<= @list[0]['title']
+      %a{:href => "#{@list[0][:url]}"}<
+        %img.img-polaroid{:src => "#{@list[0][:clip]}", :alt => "#{@list[0][:title]}"}
+        %h3.pull-right<= @list[0][:title]
 
   %div.row.pull-right
     = haml :social_buttons
@@ -26,5 +26,5 @@
         - $updates.each do |update|
           %li
             %div.row
-              %div.span2{:style => "padding-left: 5px;"}= update['date']
-              %div.span6= update['detail']
+              %div.span2{:style => "padding-left: 5px;"}= update[:date]
+              %div.span6= update[:detail]

@@ -2,13 +2,13 @@
 
 %div.container#catalog
   %div.row
-    %h2.pull-left<=@catalog['title']
+    %h2.pull-left<= @catalog[:title]
     = haml :social_buttons
     
   %div.container
     %div.row
       %div.span7
-        %h4< コミックマーケット83で「#{@catalog['title']}」を発行したでゲソ!(あれっ？)
+        %h4< コミックマーケット83で「#{@catalog[:title]}」を発行したでゲソ!(あれっ？)
         %ul
           %li< 場所:東京ビッグサイト
           %li< サークル名：MotiPizza
@@ -40,7 +40,7 @@
           全体で224ページあり、前回から70ページ増加しています。もちろん追加部分以外の修正も多く含んでいます。
 
       %div.span5
-        %img{:src=>"#{@catalog['img']}", :alt=>"#{@catalog['title']}"}
+        %img{:src=>"#{@catalog[:img]}", :alt=>"#{@catalog[:title]}"}
         %h3< 章構成
         %ul
           %li< はじめに

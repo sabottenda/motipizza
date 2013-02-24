@@ -2,13 +2,13 @@
 
 %div.container#catalog
   %div.row
-    %h2.pull-left<=@catalog['title']
+    %h2.pull-left<= @catalog[:title]
     = haml :social_buttons
     
   %div.container
     %div.row
       %div.span7
-        %h4< コミックマーケット82で「#{@catalog['title']}」を頒布しました
+        %h4< コミックマーケット82で「#{@catalog[:title]}」を頒布しました
         %ul
           %li< コミックマーケット82
           %li< 場所:東京ビッグサイト
@@ -50,13 +50,13 @@
           %strong
             ついに電子書籍化しました！
             次回作の「
-            %a{:href=>"#{$catalogs['c83']['url']}"}<> きつねさんとおぼえるLLVM
+            %a{:href=>"#{$catalogs[:c83][:url]}"}<> きつねさんとおぼえるLLVM
             」を電子書籍化した
-            %a{:href=>"#{$catalogs['eb-kitsune']['url']}"}<> きつねさんでもわかるLLVM
+            %a{:href=>"#{$catalogs[:'eb-kitsune'][:url]}"}<> きつねさんでもわかるLLVM
             を参照してください。
 
       %div.span5
-        %img{:src=>"#{@catalog['img']}", :alt=>"#{@catalog['title']}"}
+        %img{:src=>"#{@catalog[:img]}", :alt=>"#{@catalog[:title]}"}
         %h3< 目次
         %ul
           %li< はしがき

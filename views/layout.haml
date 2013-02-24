@@ -28,12 +28,12 @@
             %div.nav-collapse.collapse
               %ul.nav.pull-right
                 - $menus.each do |menu|
-                  - if @active_menu == menu['symbol']
+                  - if @active_menu == menu[:symbol]
                     %li.active<
-                      %a{:href=>"#{menu['url']}"}<= menu['display']
+                      %a{:href=>"#{menu[:url]}"}<= menu[:display]
                   - else
                     %li<
-                      %a{:href=>"#{menu['url']}"}<= menu['display']
+                      %a{:href=>"#{menu[:url]}"}<= menu[:display]
 
     %div#contents
       =yield

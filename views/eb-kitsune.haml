@@ -2,7 +2,7 @@
 
 %div.container#catalog
   %div.row
-    %h2.pull-left<=@catalog['title']
+    %h2.pull-left<= @catalog[:title]
     = haml :social_buttons
     
   %div.container
@@ -37,7 +37,7 @@
 
         %p
           前回の「
-          %a{:href=>'/catalog/c83'}<> きつねさんとおぼえるLLVM
+          %a{:href => '/catalog/c83'}<> きつねさんとおぼえるLLVM
           」から大きな内容の変更はありませんが、誤字脱字の修正と電子書籍向けのデザイン変更を行いました。
           現時点では内容に追加はありませんが、今後も新しい発見があれば追記修正していくつもりですので、
           是非本作品をよろしくお願いします。
@@ -69,7 +69,7 @@
 
 
       %div.span5
-        %img{:src=>"#{@catalog['img']}", :alt=>"#{@catalog['title']}"}
+        %img{:src=> "#{@catalog[:img]}", :alt=>"#{@catalog[:title]}"}
         %h3< 章構成
         %ul
           %li< はじめに
