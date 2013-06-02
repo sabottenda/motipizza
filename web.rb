@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 require 'sinatra'
+require 'haml'
 require './lib/googleapi.rb'
 
 $site_title = 'MotiPizza'
@@ -141,3 +142,4 @@ get '/catalog/c82' do
   @page_title = @catalog[:title]
   haml :c82
 end
+
