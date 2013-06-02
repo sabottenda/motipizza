@@ -17,6 +17,16 @@ $menus = [
 ]
 
 $catalogs = {
+  :'impress-kitsune' => {
+    :img => '/img/impress-kitsune.jpg',
+    :clip => '/img/impress-kitsune_clip.jpg',
+    :title => 'きつねさんでもわかるLLVM',
+    :subtitle => '~コンパイラを自作するためのガイドブック~',
+    :url => '/catalog/impress-kitsune',
+    :date => '2013/06/21',
+    :location => 'インプレスジャパン',
+  },
+
   :'eb-kitsune' => {
     :img => '/img/eb-kitsune.jpg',
     :clip => '/img/eb-kitsune_clip.jpg',
@@ -107,6 +117,12 @@ get '/member' do
   @page_title = 'メンバー'
   @active_menu = 'member'
   haml :member
+end
+
+get '/catalog/impress-kitsune' do
+  @catalog = $catalogs[:'impress-kitsune']
+  @page_title = @catalog[:title] + @catalog[:subtitle]
+  haml :'impress-kitsune'
 end
 
 get '/catalog/eb-kitsune' do

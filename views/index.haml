@@ -7,12 +7,18 @@
         - @list.each do |catalog|
           %li.display-thumb<
             %a{:href=>"#{catalog[:url]}"}<
-              %img.img-polaroid{:src => "#{catalog[:clip]}", :alt => "#{catalog[:title]}"}
+              %img.img-polaroid{:src => "#{catalog[:clip]}", :alt => "#{catalog[:title]} #{catalog[:subtitle]}"}
+              %div.title{:style => 'display: none;'}< #{catalog[:title]}
+              %div.subtitle{:style => 'display: none;'}< #{catalog[:subtitle]}
 
     %div.span9#display-main
       %a{:href => "#{@list[0][:url]}"}<
-        %img.img-polaroid{:src => "#{@list[0][:clip]}", :alt => "#{@list[0][:title]}"}
-        %h3.pull-right<= @list[0][:title]
+        %img.img-polaroid{:src => "#{@list[0][:clip]}", :alt => "#{@list[0][:title]} #{@list[0][:subtitle]}"}
+        %h3.pull-right
+          %div.row
+            %div.pull-left.title<= @list[0][:title]
+            %h4.pull-left.subtitle<= @list[0][:subtitle]
+
 
   %div.row.pull-right
     = haml :social_buttons

@@ -8,7 +8,8 @@
       -$catalogs.values.each do |catalog|
         %li.span4
           %div.thumbnail
-            %a{:href=>"#{catalog[:url]}"}<
+            %a{:href=>"#{catalog[:url]}"}
               %img{:src=>"#{catalog[:img]}"}
-              %h4< #{catalog[:title]}
+              %h4<= catalog[:title]
+              %h6<= catalog[:subtitle]
             %p< @#{catalog[:location]} on #{catalog[:date]}

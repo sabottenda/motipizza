@@ -1,0 +1,134 @@
+-# coding: UTF-8
+
+%div.container#catalog
+  %div.row
+    %h3.pull-left< #{@catalog[:title]}
+    %h4.pull-left{:style => 'line-height: 40px'}< #{@catalog[:subtitle]}
+    = haml :social_buttons
+    
+  %div.container
+    %div.row
+      %div.span7
+        %h4< インプレスジャパン様より「#{@catalog[:title]} #{@catalog[:subtitle]}」が発売されます。
+        .amazlet-box{:style => "margin-bottom:0px;"}
+          .amazlet-image{:style => "float:left;margin:0px 12px 1px 0px;"}
+            %a{:href => "http://www.amazon.co.jp/exec/obidos/ASIN/4844334158/kazegusuri-22/ref=nosim/", :name => "amazletlink", :target => "_blank"}
+              %img{:alt => "きつねさんでもわかるLLVM ~コンパイラを自作するためのガイドブック~", :src => "http://ecx.images-amazon.com/images/I/61EXV1gy96L._SL160_.jpg", :style => "border: none;"}/
+          .amazlet-info{:style => "line-height:120%; margin-bottom: 10px"}
+            .amazlet-name{:style => "margin-bottom:10px;line-height:120%"}
+              %a{:href => "http://www.amazon.co.jp/exec/obidos/ASIN/4844334158/kazegusuri-22/ref=nosim/", :name => "amazletlink", :target => "_blank"} きつねさんでもわかるLLVM ~コンパイラを自作するためのガイドブック~
+            .amazlet-detail
+              柏木 餅子 風薬
+              %br/
+              インプレスジャパン
+              %br/
+              売り上げランキング: 6,642
+              %br/
+            .amazlet-sub-info{:style => "float: left;"}
+              .amazlet-link{:style => "margin-top: 5px"}
+                %a{:href => "http://www.amazon.co.jp/exec/obidos/ASIN/4844334158/kazegusuri-22/ref=nosim/", :name => "amazletlink", :target => "_blank"} Amazon.co.jpで詳細を見る
+          .amazlet-footer{:style => "clear: left"}
+        %p
+          著者一同も驚きの一般書籍として発売です。
+          コミケからステップアップしてここまでやってきました。
+          今までの集大成として、一般書籍としても耐えられるように表現や内容を見直しました。
+          
+
+        %h4< 本書の概要
+        %p<
+          %a{:href => 'http://www.impressjapan.jp/books/1112101137'}<> インプレスジャパンの紹介ページ
+          より抜粋
+        %p
+          %blockquote
+            本書は、コミックマーケット（通称：コミケ）より発掘された、秀逸なLLVMの技術書です。
+            Clangをはじめ、LLVMを利用した言語処理系は多く存在していますが、まだ世の中には技術情報が非常に少ないのが現状です。そのLLVMを、著者2名が自ら解読しながら、フロントエンドからミドルエンド・バックエンドにいたるまでを丁寧に解説しました。
+            フロントエンドの作り方を字句解析から順に説明し、LLVMのコアである最適化を行うパスの作り方、オブジェクト生成までを解説したバックエンドの作り方など、LLVMを使用してコンパイラを作成するうえで必要になることを一通り網羅しています。
+            本書を通して、LLVMがさらに技術者の皆様に広まり、活用されることを祈ります。
+
+        %h4< 電子書籍版との違い
+        %p
+          違いは以下の通りになります。
+          %ul
+            %li< 文章校正による表現の変更
+            %li< 表紙の変更
+            %li< 中のきつねさんが増加！
+            %li< 値段の変更
+          本書と電子書籍版との内容的な違いは実はありません。(電子書籍版のv0.9.2から同内容になります)
+          
+
+
+      %div.span5
+        %img{:src=> "#{@catalog[:img]}", :alt=>"#{@catalog[:title]}"}
+        %h3< 章構成
+        %ul
+          %li< はじめに
+          %ul
+            %li< 本書の構成
+            %li< この本で何ができるようになるの？
+            %li< 本書の目的とターゲット層
+            %li< 本書を読むにあたって必要となるもの
+            %li< 本書内の記載について
+          %li< コンパイラとLLVM
+          %ul
+            %li< 一般的なコンパイラのお話
+            %li< LLVMプロジェクト
+          %li< 環境構築
+          %ul
+            %li< 本章の概要と構成
+            %li< 環境
+            %li< インストール
+            %li< ツールの種類と確認
+            %li< opt
+          %li< LLVM IR
+          %ul
+            %li< 本章の概要と目的
+            %li< LLVM IRの特徴
+            %li< LLVM IR の構成
+            %li< LLVM の型とLLVM アセンブリの主な命令
+            %li< 基本的なLLVMの中間表現
+            %li< 条件文
+            %li< ループ文
+            %li< アグリゲート型へのアクセス
+            %li< Metadata
+          %li< フロントエンドを作る
+          %ul
+            %li< 本章の概要
+            %li< 構文規則の定義
+            %li< 目標の設定
+            %li< 字句解析
+            %li< 構文解析
+            %li< 意味解析
+            %li< コード生成
+            %li< main の作成
+            %li< コンパイルと動作確認
+            %li< mem2reg の適用と組込み関数の導入
+            %li< JITをやってみる
+            %li< Metadata を埋め込みたい場合
+            %li< CommandLine ライブラリ
+          %li< Passについて
+          %ul
+            %li< Passの概念
+            %li< Passの種類
+            %li< その他のPass に実装すべきもの
+            %li< 簡単なPass を実装してみる
+            %li< 無用命令の削除を実装してみる
+            %li< ループの繰り返し回数のカウント
+            %li< 適用されるPass を確認する
+          %li< バックエンドを作る
+          %ul
+            %li< LLVMのバックエンドを学ぶ前に
+            %li< LLVMのバックエンドは何をするものか
+            %li< バックエンドの流れ
+            %li< 目標を決める
+            %li< ターゲットの仕様を決める
+            %li< TableGen
+            %li< ターゲットのクラス構成
+            %li< TableGenの記述(Sample.td)
+            %li< 共通クラスの実装
+            %li< SelectionDAGISelの実装
+            %li< AsmPrinterの実装
+            %li< フレーム処理の実装
+            %li< Disassemblerの実装
+            %li< その他の実装
+            %li< コンパイルする
+            %li< バックエンドを作ってみて
