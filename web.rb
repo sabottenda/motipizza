@@ -92,7 +92,7 @@ $members = {
     :introduction => 'まきぞえ。イラスト担当',
     :links => {
       :tumblr => 'http://amphase.tumblr.com/',
-      :blog => 'http://rezonanz.web.fc2.com/',
+      :website => 'http://rezonanz.web.fc2.com/',
     }
   },
 }
