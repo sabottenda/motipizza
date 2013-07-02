@@ -67,6 +67,25 @@
           %a{:href => '/catalog/eb-kitsune/eratta'}<> こちら
           に修正情報をまとめました。
 
+        %h4< バージョン情報
+        %ul
+          %li< v0.9.0
+          %ul
+            %li< 初版
+            %li< LLVM 3.1ベース
+          %li< v0.9.1
+          %ul
+            %li< v0.9.0から内容の追加はありません
+            %li< 誤字脱字の修正
+          %li< v0.9.2
+          %ul
+            %li<
+              %a{:href => '/catalog/impress-kitsune'}<> 商業誌版
+              と同内容になりました！
+            %li< LLVM 3.2ベース
+            %li< Passの解説の追加
+            %li< 誤字脱字の修正
+
 
       %div.span5
         %img{:src=> "#{@catalog[:img]}", :alt=>"#{@catalog[:title]}"}
@@ -99,7 +118,7 @@
             %li< 基本的なLLVMの中間表現
             %li< 条件文
             %li< ループ文
-            %li< アグリゲート型へのアクセス
+            %li< 合成型へのアクセス
             %li< Metadata
           %li< フロントエンドを作る
           %ul
@@ -122,6 +141,8 @@
             %li< Passの種類
             %li< その他のPass に実装すべきもの
             %li< 簡単なPass を実装してみる
+            %li< 無用命令の削除を実装してみる
+            %li< ループの繰り返し回数のカウント
             %li< 適用されるPass を確認する
           %li< バックエンドを作る
           %ul
@@ -143,5 +164,6 @@
             %li< バックエンドを作ってみて
           %li< あとがき
           %li< 索引
-          %li< 参考資料
+          %li< 参考文献
+          %li< 著者/関係者一覧
 
