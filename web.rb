@@ -17,6 +17,15 @@ $menus = [
 ]
 
 $catalogs = {
+  :c84 => {
+    :img => '/img/c84.jpg',
+    :clip => '/img/c84_clip.jpg',
+    :title => 'きつねさんとわかるClang',
+    :url => '/catalog/c84',
+    :date => '2013/08/12',
+    :location => 'コミックマーケット 84',
+  },
+
   :'impress-kitsune' => {
     :img => '/img/impress-kitsune.jpg',
     :clip => '/img/impress-kitsune_clip.jpg',
@@ -56,6 +65,7 @@ $catalogs = {
 }
 
 $updates = [
+  {:date => '2013/07/10', :detail => 'C84のページだけつくりました'},
   {:date => '2013/07/02', :detail => '電子書籍版「きつねさんでもわかるLLVM」のv0.9.2を公開しました。'},
   {:date => '2013/06/02', :detail => 'インプレスジャパン様より「きつねさんでもわかるLLVM~コンパイラを自作するためのガイドブック~」が発売されます。'},
   {:date => '2013/02/24', :detail => '「きつねさんでもわかるLLVM」の訂正一覧ページを追加しました。'},
@@ -92,7 +102,7 @@ $members = {
     :introduction => 'まきぞえ。イラスト担当',
     :links => {
       :tumblr => 'http://amphase.tumblr.com/',
-      :website => 'http://rezonanz.web.fc2.com/',
+      :website => 'http://yew.digiweb.jp/',
     }
   },
 }
@@ -119,6 +129,12 @@ get '/member' do
   @page_title = 'メンバー'
   @active_menu = 'member'
   haml :member
+end
+
+get '/catalog/c84' do
+  @catalog = $catalogs[:c84]
+  @page_title = @catalog[:title]
+  haml :c84
 end
 
 get '/catalog/impress-kitsune' do
