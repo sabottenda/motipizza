@@ -7,5 +7,144 @@
 
   %div.container
     %div.row
-      %h2< Now writing...
-      %h7< 今からかきます…
+      %div.span7
+        %h4< コミックマーケット84で「#{@catalog[:title]}」を頒布します。
+        %ul
+          %li< 場所:東京ビッグサイト
+          %li< サークル名：MotiPizza
+          %li< 日程：3日目 (8月12日)
+          %li<
+            スペース番号：
+            %a{:href => 'http://twitcmap.jp/?id=0084-3-PEk-04-a'}<> 東ペ-04a
+          %li< 頒布物：きつねさんとおぼえる！Clang
+          %li< ページ数: 102ページ
+          %li< 値段: 1部 700円
+          %li< 部数制限: 無し
+
+        %h4< 本書の概要
+        %p
+          LLVMのC/C++/Objective-C/Objective-C++フロントエンドであるClangの解説本です。
+        %p
+          Clangはその完成度の高さと、GCCに匹敵する程の性能の高さから非常に注目されています。
+          一方でClangにはコンパイル中に得られた様々な情報を提供する機能があり、Clangそれ自体がLLVMのようなインフラとして使われる側面があります。
+        %p
+          本書では純粋なコンパイラとしてのClangではなく、インフラとしてのClangが提供している機能について解説しています。
+          時間の都合上、応用的な内容までは紹介できず、チュートリアル的な内容となっていますが、Clangを使ってどのようなことができるかというのは十分にわかるかと思います。
+          これまでのLLVM本よりも専門的な知識を必要としない内容になっているので気軽に読めるかと思います。
+
+        %h4< 委託・増刷や電子書籍化について
+        %p
+          委託については余った場合にのみ考慮しますが、増刷の予定はありません。
+          電子書籍化についても今のところ予定はありません。
+
+        %h4< 補足
+        %p
+          今回から新キャラクタが登場しています。
+          本書にはこれまでのキャラクタを含む、設定資料集が付いていますので是非ご覧下さい。
+
+      %div.span5
+        %img{:src=>"#{@catalog[:img]}", :alt=>"#{@catalog[:title]}"}
+        %h3< 章構成
+        %ul
+          %li< はしがき
+          %li< はじめに
+          %ul
+            %li< 本書の構成
+            %li< 本書の目的
+            %li< 本書内の記載について
+            %li< お断り
+          %li< 環境構築とClang の使い方
+          %ul
+            %li< 本章の概要と構成
+            %li< 環境
+            %li< インストール
+            %ul
+              %li< ビルドに必要なパッケージのインストール
+              %li< LLVM/Clang のビルド/インストール
+              %li< パスの設定
+            %li< ツールの種類と確認
+            %ul
+              %li< clang
+              %li< clang-check
+              %li< clang-format
+          %li< はじめてのSanitizer
+          %ul
+            %li< Sanitizer とは
+            %li< Sanitizer の種類
+            %ul
+              %li< Undefined Behavior Sanitizer(UBSan)
+              %li< Integer Sanitizer(ISan)
+              %li< Address Sanitizer(ASan)
+              %li< Thread Sanitizer(TSan)
+              %li< Memory Sanitizer(MSan)
+          %li< LibClang
+          %ul
+            %li< LibClang とは
+            %li< LibClang でできること
+            %li< 翻訳単位について
+            %li< トークンの取得
+            %ul
+              %li< 処理の流れ
+              %li< サンプルプログラム
+              %li< 実行結果
+            %li< 抽象構文木の走査
+            %ul
+              %li< 処理の流れ
+              %li< サンプルプログラム
+              %li< 実行結果
+            %li< 診断情報の取得
+            %ul
+              %li< 処理の流れ
+              %li< サンプルプログラム
+              %li< 実行結果
+            %li< コード補完情報の取得
+            %ul
+              %li< 処理の流れ
+              %li< サンプルプログラム
+              %li< 実行結果
+            %li< コンパイルデータベース
+            %ul
+              %li< 処理の流れ
+              %li< サンプルプログラム
+              %li< 実行結果
+          %li< LibTooling
+          %ul
+            %li< LibTooling とは
+            %li< ビルド環境の構築
+            %li< Clang AST の概要
+            %ul
+              %li< clang-check でast をdump してみる
+            %li< LibTooling で簡単なツールを作る
+            %ul
+              %li< コマンドラインオプションのパース
+              %li< ClangTool を生成して実行する
+              %li< コンパイルと実行
+              %li< 独自のFrontendAction を作成する
+            %li< RecursiveASTVisitor でAST の情報を出力する
+            %ul
+              %li< RecursiveASTVisitor の作成
+              %li< ASTConsumer の修正
+              %li< コンパイルと実行
+            %li< LibAstMatchers で特定パターンのAST を捕捉する
+            %ul
+              %li< AST matcher
+              %li< clang::ast_matchers::MatchFinder
+              %li< clang::ast_matchers::MatchFinder::MatchCallback の作成
+              %li< コンパイルと実行
+            %li< RefactoringTool でコードを書き換えてみる
+            %ul
+              %li< RefactoringTool の生成と実行
+              %li< MatcherCallback にReplacements を渡す
+              %li< MatchResult からAST のノード情報を取得する
+              %li< Replacement を生成する
+              %li< コンパイルと実行
+          %li< ClangPlugin
+          %ul
+            %li< ClangPlugin とは
+            %li< ClangPlugin で簡単なプラグインを作成する
+            %ul
+              %li< PluginASTAction の作成と登録
+              %li< コンパイルと実行
+          %li< 設定資料集
+          %li< あとがき
+          %li< 著者/関係者一覧
