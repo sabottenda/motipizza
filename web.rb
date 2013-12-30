@@ -17,6 +17,15 @@ $menus = [
 ]
 
 $catalogs = {
+  :c85 => {
+    :img => '/img/c85.jpg',
+    :clip => '/img/c85_clip.jpg',
+    :title => 'きつねさんとおぼえる！Clang おかわり',
+    :url => '/catalog/c85',
+    :date => '2013/12/31',
+    :location => 'コミックマーケット 85',
+  },
+
   :c84 => {
     :img => '/img/c84.jpg',
     :clip => '/img/c84_clip.jpg',
@@ -65,6 +74,7 @@ $catalogs = {
 }
 
 $updates = [
+  {:date => '2013/12/30', :detail => 'C85で「きつねさんとおぼえる！Clang おかわり」を出します。'},
   {:date => '2013/08/04', :detail => 'C84で「きつねさんとおぼえる！Clang」を出します。'},
   {:date => '2013/07/10', :detail => 'C84のページだけつくりました'},
   {:date => '2013/07/02', :detail => '電子書籍版「きつねさんでもわかるLLVM」のv0.9.2を公開しました。'},
@@ -110,7 +120,7 @@ $members = {
 
 get '/' do
   @active_menu = 'home'
-  @list = $catalogs.values
+  @list = $catalogs.values.slice(0,5)
   haml :index
 end
 
@@ -130,6 +140,12 @@ get '/member' do
   @page_title = 'メンバー'
   @active_menu = 'member'
   haml :member
+end
+
+get '/catalog/c85' do
+  @catalog = $catalogs[:c85]
+  @page_title = @catalog[:title]
+  haml :c85
 end
 
 get '/catalog/c84' do

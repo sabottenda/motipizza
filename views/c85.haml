@@ -1,0 +1,125 @@
+-# coding: UTF-8
+
+%div.container#catalog
+  %div.row
+    %h2.pull-left<= @catalog[:title]
+    = haml :social_buttons
+
+  %div.container
+    %div.row
+      %div.span7
+        %h4< コミックマーケット85で「#{@catalog[:title]}」を頒布します。
+        %ul
+          %li< 場所:東京ビッグサイト
+          %li< サークル名：MotiPizza
+          %li< 日程：3日目 (12月31日)
+          %li<
+            スペース番号：
+            %a{:href => 'http://twitcmap.jp/?id=0085-3-SUh-05-b'}<> 西す-05b
+          %li< 頒布物：きつねさんとおぼえる！Clang おかわり
+          %li< ページ数: 110ページ
+          %li< 値段: 1部 800円
+          %li< 部数制限: 無し
+
+        %h4< 本書の概要
+        %p
+          LLVMのC/C++/Objective-C/Objective-C++フロントエンドであるClangの解説本の2冊目(おかわり)です。
+        %p
+          Clangはその完成度の高さと、GCCに匹敵する程の性能の高さから非常に注目されています。
+          一方でClangにはコンパイル中に得られた様々な情報を提供する機能があり、Clangそれ自体がLLVMのようなインフラとして使われる側面があります。
+        %p
+          1冊目の「きつねさんとおぼえる！Clang」ではインフラとしてのClangを紹介するために各機能を簡単に説明しました。
+          今回は各機能の中でもLibClangとLibToolingに関してもう少し詳しく説明しています。
+          LibClangでは抽象構文木の走査をRubyバインディングで行うチュートリアルを行なっています。
+          LibToolingは前回の続きとその応用として
+          %a{:href => 'https://github.com/Kmotiko/clang-degrader'}<> clang-degrader
+          を作成するといった内容になっています。
+
+        %h4< 委託・増刷や電子書籍化について
+        %p
+          委託については余った場合にのみ考慮しますが、増刷の予定はありません。
+          電子書籍化についても今のところ予定はありません。
+          (いろいろ落ち着いたら今までのまとめとして取り組むかもしれません)
+
+      %div.span5
+        %img{:src=>"#{@catalog[:img]}", :alt=>"#{@catalog[:title]}"}
+        %h3< 章構成
+
+        %ul
+          %li< はしがき
+          %li< はじめに
+          %ul
+            %li< 本書の構成
+            %li< 本書の目的
+            %li< 本書内の記載について
+            %li< お断り
+          %li< 環境構築とClang の使い方
+          %ul
+            %li< 本章の概要と構成
+            %li< 環境
+            %li< インストール
+            %ul
+              %li< ビルドに必要なパッケージのインストール
+              %li< LLVM/Clang のビルド/インストール
+              %li< パスの設定
+            %li< ツールの種類と確認
+            %ul
+              %li< clang
+              %li< clang-check
+              %li< clang-format
+              %li< clang-modernize
+          %li< LibClang AST の概要
+          %ul
+            %li<
+            %li< Clang の抽象構文木
+            %li< LibClang とは
+            %li< LibClang における抽象構文木の構造
+            %li< 抽象構文木の操作関数
+            %ul
+              %li< インデックスと翻訳単位の操作
+              %li< 翻訳単位とカーソル間の操作
+              %li< ソース位置と物理ファイル位置間の操作
+              %li< ソース位置とカーソル間の操作.
+              %li< ソース位置とソース範囲間の操作
+              %li< カーソル間の移動
+              %li< カーソルの文字列表現
+              %li< カーソルの種類
+              %li< 型に関する操作
+              %li< コメントの取得
+          %li< LibClang チュートリアル
+          %ul
+            %li< LibClang の言語バインディングについて
+            %li< LibClang のクラスとRuby のクラスの対応
+            %li< 翻訳単位を作成する
+            %li< 抽象構文木を走査する
+            %li< 注釈関数を作ってみる
+            %li< ファイル位置を指定してカーソルを取得する
+            %li< 定義と宣言を取得する
+            %li< typedef された型を参照する
+            %li< マクロ展開の情報を取得する
+            %li< コメントを取得する
+          %li< LibTooling おかわり！
+          %ul
+            %li< まえおき
+            %li< 復習しましょう
+            %ul
+              %li< LibTooling ってなんだっけ？
+              %li< 前回のおさらい
+            %li< 今回は何するの？
+            %ul
+              %li< ベースとなるリファクタリングツール
+            %li< リファクタリング情報をファイル出力する
+            %ul
+              %li< YAML::Output で出力を試す
+              %li< TranslationUnitReplacements に変更する
+              %li< MatchCallback とNullptrDegrader の定義
+              %li< main 関数とoutputRepacementsYAML の修正
+              %li< コンパイルと実行
+            %li< 指定した範囲のみ適用する
+            %ul
+              %li< Degrader クラスとFixer クラスの修正
+              %li< CommandLine ライブラリ
+              %li< オプションのパース
+              %li< コンパイルと実行
+          %li< あとがき
+          %li< 著者/関係者一覧
