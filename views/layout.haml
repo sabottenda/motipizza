@@ -20,10 +20,10 @@
       %meta(property="og:type" content="article")
     - if @og_image
       %meta(property="og:image" content=@og_image)
+      %meta(content="summary_large_image" name="twitter:card")
     %meta(property="og:url" content=@url)
     %meta(property="og:site_name" content=$site_title)
     %meta(property="og:locale" content="ja_JP")
-    %meta(content="summary" name="twitter:card")
     %link(rel='shortcut icon' href='/img/favicon.ico')
     -# %link(rel='stylesheet' href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css')
     -# %link(rel='stylesheet' href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.no-icons.min.css')
