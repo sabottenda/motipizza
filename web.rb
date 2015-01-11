@@ -7,7 +7,7 @@ $site_title = 'MotiPizza'
 
 $twitter_url = 'https://twitter.com'
 $twitter_api = 'http://api.twitter.com'
-$twitter_icon = "#{$twitter_api}/1/users/profile_image?size=bigger&screen_name="
+$twitter_icon = "http://www.paper-glasses.com/api/twipi"
 
 $menus = [
   {:symbol => 'home', :display => 'ホーム', :url => '/'},
