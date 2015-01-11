@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 require 'sinatra'
+require 'sinatra/reloader' if development?
 require 'haml'
 require './lib/googleapi.rb'
 
@@ -17,6 +18,15 @@ $menus = [
 ]
 
 $catalogs = {
+  :c87 => {
+    :img => '/img/c87.jpg',
+    :clip => '/img/c87_clip.jpg',
+    :title => 'ばいなり、こんこん、こんぱいる。',
+    :url => '/catalog/c87',
+    :date => '2014/12/30',
+    :location => 'コミックマーケット 87',
+  },
+
   :c85 => {
     :img => '/img/c85.jpg',
     :clip => '/img/c85_clip.jpg',
@@ -140,6 +150,12 @@ get '/member' do
   @page_title = 'メンバー'
   @active_menu = 'member'
   haml :member
+end
+
+get '/catalog/c87' do
+  @catalog = $catalogs[:c87]
+  @page_title = @catalog[:title]
+  haml :c87
 end
 
 get '/catalog/c85' do
