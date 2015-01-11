@@ -7,6 +7,7 @@ require './lib/googleapi.rb'
 $site_title = 'MotiPizza'
 $keywords = ['LLVM', 'Clang', 'コミックマーケット', 'きつねさん', 'LLVM本']
 $description = 'MotiPizzaはメンバーが個人的に盛り上げていきたい技術情報を年に2回行われるコミックマーケットで紹介するサークルです。現在取り扱っている情報は主に LLVM に関する情報です'
+$domain = "motipizza.com"
 
 $twitter_url = 'https://twitter.com'
 $twitter_api = 'http://api.twitter.com'
@@ -24,6 +25,7 @@ $catalogs = {
     :img => '/img/c87.jpg',
     :clip => '/img/c87_clip.jpg',
     :title => 'ばいなり、こんこん、こんぱいる。',
+    :description => 'コミックマーケット87で「ばいなり、こんこん、こんぱいる。」を頒布します by MotiPizza',
     :url => '/catalog/c87',
     :date => '2014/12/30',
     :location => 'コミックマーケット 87',
@@ -33,6 +35,7 @@ $catalogs = {
     :img => '/img/c85.jpg',
     :clip => '/img/c85_clip.jpg',
     :title => 'きつねさんとおぼえる！Clang おかわり',
+    :description => 'コミックマーケット85で「きつねさんとおぼえる！Clang おかわり」を頒布します by MotiPizza',
     :url => '/catalog/c85',
     :date => '2013/12/31',
     :location => 'コミックマーケット 85',
@@ -42,6 +45,7 @@ $catalogs = {
     :img => '/img/c84.jpg',
     :clip => '/img/c84_clip.jpg',
     :title => 'きつねさんとおぼえる！Clang',
+    :description => 'コミックマーケット84で「きつねさんとおぼえる！Clang」を頒布します by MotiPizza',
     :url => '/catalog/c84',
     :date => '2013/08/12',
     :location => 'コミックマーケット 84',
@@ -52,6 +56,7 @@ $catalogs = {
     :clip => '/img/impress-kitsune_clip.jpg',
     :title => 'きつねさんでもわかるLLVM',
     :subtitle => '~コンパイラを自作するためのガイドブック~',
+    :description => 'インプレスジャパン様より「きつねさんでもわかるLLVM ~コンパイラを自作するためのガイドブック~」を発売中。',
     :url => '/catalog/impress-kitsune',
     :date => '2013/06/21',
     :location => 'インプレスジャパン',
@@ -61,6 +66,7 @@ $catalogs = {
     :img => '/img/eb-kitsune.jpg',
     :clip => '/img/eb-kitsune_clip.jpg',
     :title => 'きつねさんでもわかるLLVM',
+    :description => '達人出版会様より「きつねさんでもわかるLLVM」を販売中。',
     :url => '/catalog/eb-kitsune',
     :date => '2013/02/08',
     :location => '達人出版会',
@@ -70,6 +76,7 @@ $catalogs = {
     :img => '/img/c83.jpg',
     :clip => '/img/c83_clip.jpg',
     :title => 'きつねさんとおぼえるLLVM',
+    :description => 'コミックマーケット83で「きつねさんとおぼえるLLVM」を頒布します by MotiPizza',
     :url => '/catalog/c83',
     :date => '2012/12/31',
     :location => 'コミックマーケット 83',
@@ -79,6 +86,7 @@ $catalogs = {
     :img => '/img/c82.jpg',
     :clip => '/img/c82_clip.jpg',
     :title => '3日で出来るLLVM',
+    :description => 'コミックマーケット82で「3日で出来るLLVM」を頒布します by MotiPizza',
     :url => '/catalog/c82',
     :date => '2012/08/11',
     :location => 'コミックマーケット 82',
@@ -131,14 +139,14 @@ $members = {
 }
 
 before do
-  @url = "http://motipizza.com#{request.fullpath}"
+  @url = "http://#{$domain}#{request.fullpath}"
 end
 
 get '/' do
   @active_menu = 'home'
   @list = $catalogs.values.slice(0,5)
   @description = $description
-  @og_image = $catalogs.values.first[:clip]
+  @og_image = "http://#{$domain}" + $catalogs.values.first[:clip]
   haml :index
 end
 
@@ -166,7 +174,7 @@ get '/catalog/c87' do
   @catalog = $catalogs[:c87]
   @page_title = @catalog[:title]
   @description = @catalog[:description]
-  @og_image = @catalog[:clip]
+  @og_image = "http://#{$domain}" + @catalog[:clip]
   haml :c87
 end
 
@@ -174,7 +182,7 @@ get '/catalog/c85' do
   @catalog = $catalogs[:c85]
   @page_title = @catalog[:title]
   @description = @catalog[:description]
-  @og_image = @catalog[:clip]
+  @og_image = "http://#{$domain}" + @catalog[:clip]
   haml :c85
 end
 
@@ -182,7 +190,7 @@ get '/catalog/c84' do
   @catalog = $catalogs[:c84]
   @page_title = @catalog[:title]
   @description = @catalog[:description]
-  @og_image = @catalog[:clip]
+  @og_image = "http://#{$domain}" + @catalog[:clip]
   haml :c84
 end
 
@@ -190,7 +198,7 @@ get '/catalog/impress-kitsune' do
   @catalog = $catalogs[:'impress-kitsune']
   @page_title = @catalog[:title] + @catalog[:subtitle]
   @description = @catalog[:description]
-  @og_image = @catalog[:clip]
+  @og_image = "http://#{$domain}" + @catalog[:clip]
   haml :'impress-kitsune'
 end
 
@@ -198,7 +206,7 @@ get '/catalog/eb-kitsune' do
   @catalog = $catalogs[:'eb-kitsune']
   @page_title = @catalog[:title]
   @description = @catalog[:description]
-  @og_image = @catalog[:clip]
+  @og_image = "http://#{$domain}" + @catalog[:clip]
   haml :'eb-kitsune'
 end
 
@@ -222,7 +230,7 @@ get '/catalog/c83' do
   @catalog = $catalogs[:c83]
   @page_title = @catalog[:title]
   @description = @catalog[:description]
-  @og_image = @catalog[:clip]
+  @og_image = "http://#{$domain}" + @catalog[:clip]
   haml :c83
 end
 
@@ -230,7 +238,7 @@ get '/catalog/c82' do
   @catalog = $catalogs[:c82]
   @page_title = @catalog[:title]
   @description = @catalog[:description]
-  @og_image = @catalog[:clip]
+  @og_image = "http://#{$domain}" + @catalog[:clip]
   haml :c82
 end
 
