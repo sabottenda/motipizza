@@ -5,6 +5,8 @@ require 'haml'
 require './lib/googleapi.rb'
 
 $site_title = 'MotiPizza'
+$keywords = ['LLVM', 'Clang', 'コミックマーケット', 'きつねさん', 'LLVM本']
+$description = 'MotiPizzaはメンバーが個人的に盛り上げていきたい技術情報を年に2回行われるコミックマーケットで紹介するサークルです。現在取り扱っている情報は主に LLVM に関する情報です'
 
 $twitter_url = 'https://twitter.com'
 $twitter_api = 'http://api.twitter.com'
@@ -128,15 +130,22 @@ $members = {
   },
 }
 
+before do
+  @url = "http://motipizza.com#{request.fullpath}"
+end
+
 get '/' do
   @active_menu = 'home'
   @list = $catalogs.values.slice(0,5)
+  @description = $description
+  @og_image = $catalogs.values.first[:clip]
   haml :index
 end
 
 get '/activity' do
   @page_title = '活動'
   @active_menu = 'activity'
+  @description = $description
   haml :activity
 end
 
@@ -149,36 +158,47 @@ end
 get '/member' do
   @page_title = 'メンバー'
   @active_menu = 'member'
+  @description = $description
   haml :member
 end
 
 get '/catalog/c87' do
   @catalog = $catalogs[:c87]
   @page_title = @catalog[:title]
+  @description = @catalog[:description]
+  @og_image = @catalog[:clip]
   haml :c87
 end
 
 get '/catalog/c85' do
   @catalog = $catalogs[:c85]
   @page_title = @catalog[:title]
+  @description = @catalog[:description]
+  @og_image = @catalog[:clip]
   haml :c85
 end
 
 get '/catalog/c84' do
   @catalog = $catalogs[:c84]
   @page_title = @catalog[:title]
+  @description = @catalog[:description]
+  @og_image = @catalog[:clip]
   haml :c84
 end
 
 get '/catalog/impress-kitsune' do
   @catalog = $catalogs[:'impress-kitsune']
   @page_title = @catalog[:title] + @catalog[:subtitle]
+  @description = @catalog[:description]
+  @og_image = @catalog[:clip]
   haml :'impress-kitsune'
 end
 
 get '/catalog/eb-kitsune' do
   @catalog = $catalogs[:'eb-kitsune']
   @page_title = @catalog[:title]
+  @description = @catalog[:description]
+  @og_image = @catalog[:clip]
   haml :'eb-kitsune'
 end
 
@@ -201,12 +221,16 @@ end
 get '/catalog/c83' do
   @catalog = $catalogs[:c83]
   @page_title = @catalog[:title]
+  @description = @catalog[:description]
+  @og_image = @catalog[:clip]
   haml :c83
 end
 
 get '/catalog/c82' do
   @catalog = $catalogs[:c82]
   @page_title = @catalog[:title]
+  @description = @catalog[:description]
+  @og_image = @catalog[:clip]
   haml :c82
 end
 

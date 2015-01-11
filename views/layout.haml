@@ -3,9 +3,27 @@
 %html
   %head
     - if @page_title
-      %title= "#{@page_title} - #{$site_title}"
+      %title= "#{$site_title} - #{@page_title}"
+      %meta(content="#{$site_title} | #{@page_title}" name="title")
+      %meta(property="og:title" content="#{$site_title} | #{@page_title}")
     - else 
       %title= $site_title
+      %meta(content="#{$site_title} - LLVM/Clangなどを解説する同人サークル" name="title")
+      %meta(property="og:title" content=$site_title)
+    - if @description
+      %meta(content=@description name="description")
+      %meta(property="og:description" content=@description)
+    %meta(content="#{$keywords.join(', ')}" name='keywords')
+    - if @active_menu == 'home' # top page
+      %meta(property="og:type" content="website")
+    - else
+      %meta(property="og:type" content="article")
+    - if @og_image
+      %meta(property="og:image" content=@og_image)
+    %meta(property="og:url" content=@url)
+    %meta(property="og:site_name" content=$site_title)
+    %meta(property="og:locale" content="ja_JP")
+    %meta(content="summary" name="twitter:card")
     %link(rel='shortcut icon' href='/img/favicon.ico')
     -# %link(rel='stylesheet' href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css')
     -# %link(rel='stylesheet' href='//netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap.no-icons.min.css')
