@@ -1,0 +1,93 @@
+-# coding: UTF-8
+
+%div.container#catalog
+  %div.row
+    %h2.pull-left<= @catalog[:title]
+    = haml :social_buttons
+
+  %div.container
+    %div.row
+      %div.span7
+        %h4< コミックマーケット87で「#{@catalog[:title]}」を頒布します。
+        %ul
+          %li< 場所:東京ビッグサイト
+          %li< サークル名：MotiPizza
+          %li< 日程：3日目 (12月30日)
+          %li<
+            スペース番号：西く-16a
+          %li< 頒布物：#{@catalog[:title]}
+          %li< ページ数: 54ページ
+          %li< 値段: 1部 700円
+          %li< 合計部数: 70部　
+          %li< 部数制限: 無し
+
+        %h4< 本書の概要
+        %p
+          LLVMのJITとGCについて解説しています。
+          今回は全体ではテーマを統一せず、それぞれが好きな内容を書いています。
+        %p
+          1,2章はいつも通りの本書の構成と環境構築方法を解説しています。
+        %p
+          3章ではLLVMのJIT(OldJIT)とMCJITの違いについてソースコードを追いかけながら簡単に解説しています。
+        %p
+          4章ではLLVMに組み込まれているGCプラグインであるShadowStackの利用方法とLLVMを利用してGCを実装する際のポイントについて解説しています。
+
+        %h4< 委託・増刷や電子書籍化について
+        %p
+          委託については余った場合にのみ考慮します。
+          次回内容を追記して増刷する可能性はありますが、詳細は未定です。
+          電子書籍化についても今のところ予定はありません。
+
+      %div.span5
+        %img{:src=>"#{@catalog[:img]}", :alt=>"#{@catalog[:title]}"}
+        %h3< 章構成
+
+        %ul
+          %li< はしがき
+          %li< はじめに
+          %ul
+            %li< 本書の構成
+            %li< 本書内の記載について
+            %li< お断り
+          %li< 環境構築
+          %ul
+            %li< 本章の概要と構成
+            %li< 環境
+            %li< インストール
+            %ul
+              %li< ビルドに必要なパッケージのインストール
+              %li< LLVM/Clang のビルド/インストール
+              %li< パスの設定
+          %li< もうJIT してられない
+          %ul
+            %li< LLVM のJIT
+            %li< JIT の使い方
+            %li< JIT とMCJIT
+            %ul
+              %li< JIT の詳細
+              %li< MCJIT の詳細
+            %li< JIT vs MCJIT
+          %li< ごみ集め
+          %ul
+            %li< 本章の概要
+            %li< GC
+            %ul
+              %li< 概要
+              %li< 色々なGC
+            %li< LLVM のGC
+            %ul
+              %li< GC を実装するのに必要なこと
+            %li< ShadowStack を使ってみる
+            %ul
+              %li< ShadowStack
+              %li< ランタイム
+              %li< コード生成
+              %li< 動作確認
+            %li< 独自のGC プラグインを実装する場合
+            %ul
+              %li< GCStrategy
+              %li< その他のGC 関連サポート
+              %li< SafePoint
+              %li< GC プラグインのコンパイルと利用
+          %li< あとがき
+          %li< 著者/関係者一覧
